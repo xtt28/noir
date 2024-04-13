@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users",
     "posts",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Settings added by Noir
 
 AUTH_USER_MODEL = "users.NUser"
+
+STATICFILES_DIRS = [BASE_DIR / "static"]
