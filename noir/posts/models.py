@@ -22,6 +22,7 @@ class Post(models.Model):
         creator: The user who created the post.
         created_at: The time at which the post was created.
         updated_at: The time at which the post was most recently updated.
+        title: The title of the post, limited to 255 characters.
         content: The textual content of the post."""
 
     creator = models.ForeignKey(NUser, on_delete=models.CASCADE, related_name="posts")
@@ -29,7 +30,13 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    title = models.CharField(
+        max_length=255,
+    )
     content = models.TextField()
+
+    def __str__(self):
+        return f'"{self.title}"'
 
 
 class Reply(models.Model):
@@ -54,3 +61,8 @@ class Reply(models.Model):
     parent = models.ForeignKey(
         "self", on_delete=models.CASCADE, related_name="children", null=True, blank=True
     )
+
+    content = models.TextField()
+
+    def __str__(self):
+        return f"Reply {self.pk}: {str(self.content)[:50]}..."
