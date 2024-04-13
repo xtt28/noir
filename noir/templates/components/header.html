@@ -2,5 +2,21 @@
 
 <header>
     <h1 class="text-5xl font-serif">• Noir</h1>
-    <p class="text-xl mt-2">{% trans "An anonymous place to be who you are." %}</p>
+    <p class="text-xl my-2">{% trans "An anonymous place to be who you are." %}</p>
+    {% if user.is_authenticated %}
+    <div class="flex">
+        <button class="bg-zinc-950 hover:bg-zinc-900 transition border border-zinc-900 px-5 py-1 w-full rounded text-sm">
+            Create a post
+        </button>
+    </div>
+    {% else %}
+    <div class="flex flex-col sm:flex-row w-full gap-2 mt-2">
+        <a class="bg-zinc-950 hover:bg-zinc-900 transition border border-zinc-900 px-5 py-1 w-full rounded text-sm text-center">
+            Log in
+        </a>
+        <a class="bg-zinc-950 hover:bg-zinc-900 transition border border-zinc-900 px-5 py-1 w-full rounded text-sm text-center">
+            Register
+        </a>
+    </div>
+    {% endif %}
 </header>
