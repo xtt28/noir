@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/out.css' %}">
+    {% block "head" %}{% endblock %}
+    <title>{% block "title" %}{% endblock %} • Noir</title>
+</head>
+<body class="bg-black">
+    <div class="w-full h-full text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-20% to-black">
+        <div class="max-w-xl mx-auto p-5 pt-52">
+            {% include "components/header.html" %}
+            {% block "content" %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>
