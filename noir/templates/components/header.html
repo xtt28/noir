@@ -3,6 +3,16 @@
 <header>
     <h1 class="font-serif text-5xl">• Noir</h1>
     <p class="my-2 text-xl">{% trans "An anonymous place to be who you are." %}</p>
+    <div class="my-2 text-zinc-500">
+        <a
+            href="https://github.com/xtt28/noir"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm hover:underline"
+        >
+            GitHub
+        </a>
+    </div>
     {% if user.is_authenticated %}
     <div class="space-y-3">
         <button
