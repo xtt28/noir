@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+div:has(> label) {
+    @apply flex flex-col gap-2 mb-2;
+}
+
+div > label {
+    @apply text-sm;
+}
+
+input, textarea {
+    @apply p-2 text-white border rounded outline-zinc-400 outline-1 bg-zinc-950 border-zinc-900;
+}

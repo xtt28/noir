@@ -10,9 +10,9 @@
     {% block "head" %}{% endblock %}
     <title>{% block "title" %}{% endblock %} • Noir</title>
 </head>
-<body class="bg-black">
+<body class="bg-black" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <div class="w-full h-full text-white bg-gradient-to-b from-zinc-700 via-zinc-900 to-20% to-black">
-        <div class="max-w-xl mx-auto p-5 pt-52">
+        <div class="max-w-xl p-5 mx-auto pt-52">
             {% include "components/header.html" %}
             {% block "content" %}{% endblock %}
         </div>
