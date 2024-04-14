@@ -19,6 +19,8 @@ class HomeRedirectView(View):
 class PostListView(ListView):
     """A view that shows all posts ordered by date (descending)."""
     model = Post
+    context_object_name = "posts"
+    ordering = "-created_at"
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     """A view that allows the user to create a new post.
