@@ -19,6 +19,11 @@
             <div class="overflow-hidden text-zinc-300 text-ellipsis">
                 {{ post.content|truncatechars:100 }}
             </div>
+            <div class="text-sm text-zinc-500">
+                {% blocktrans with replies=post.replies.count created_at=post.created_at %}
+                {{ replies }} replies • Created {{ created_at }}
+                {% endblocktrans %}
+            </div>
         </div>
         {% endfor %}
     </div>
