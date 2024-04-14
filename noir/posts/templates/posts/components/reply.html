@@ -1,0 +1,7 @@
+<div class="my-3" style="padding-left: {{ indent }}px;">
+    <div class="text-sm text-zinc-500">{{ reply.created_at }}</div>
+    {{ reply.content }}
+</div>
+{% for child in reply.children.all %}
+    {% include "posts/components/reply.html" with reply=child indent=indent|add:20 %}      
+{% endfor %}
