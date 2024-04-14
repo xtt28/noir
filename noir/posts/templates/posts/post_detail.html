@@ -16,7 +16,9 @@
                 {{ post.title }}
             </h2>
         </header>
-        {{ post.content|linebreaksbr }}
+        <div class="overflow-hidden text-ellipsis">
+            {{ post.content|linebreaksbr }}
+        </div>
     </article>
     <section class="mt-5">
         <h3 class="font-serif text-xl">{% trans "Replies" %}</h3>
