@@ -9,6 +9,7 @@ Typical usage example:
 """
 
 from django.db import models
+from django.urls import reverse
 from users.models import NUser
 
 
@@ -37,6 +38,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f'"{self.title}"'
+
+    def get_absolute_url(self):
+        """Returns a URL to the resource."""
+        return reverse("posts:detail", kwargs={"pk": self.pk})
 
 
 class Reply(models.Model):

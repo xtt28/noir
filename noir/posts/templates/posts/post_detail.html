@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block "title" %}
+    {% blocktrans with title=post.title %}
+    "{{ title }}"
+    {% endblocktrans %}
+{% endblock %}
+
+{% block "content" %}
+<main class="mt-10">
+    <article>
+        <header class="mb-5">
+            <p class="mb-2 text-zinc-500">{{ post.created_at }}</p>
+            <h2 class="font-serif text-2xl">
+                {{ post.title }}
+            </h2>
+        </header>
+        {{ post.content|linebreaksbr }}
+    </article>
+    <section class="mt-5">
+        <h3 class="font-serif text-xl">{% trans "Replies" %}</h3>
+        {% for reply in post.replies.all %}
+        {% empty %}
+        <p class="text-zinc-500">{% trans "There are no comments. Maybe start the discussion?" %}</p>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
