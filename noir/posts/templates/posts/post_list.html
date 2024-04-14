@@ -5,5 +5,17 @@
 {% block "title" %}{% trans "Browse posts" %}{% endblock %}
 
 {% block "content" %}
-<h1>hi</h1>
+<section class="mt-10">
+    <h2 class="font-serif text-3xl">{% trans "Timeline" %}</h2>
+    <div class="space-y-3">
+        {% for post in posts %}
+        <div class="p-2 my-2 text-sm transition border rounded bg-zinc-950 border-zinc-900">
+            <h3 class="text-lg text-zinc-300">{{ post.title }}</h3>
+            <div class="overflow-hidden text-zinc-300 text-ellipsis">
+                {{ post.content|truncatechars:100 }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
