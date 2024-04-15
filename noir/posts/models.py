@@ -71,3 +71,11 @@ class Reply(models.Model):
 
     def __str__(self):
         return f"Reply {self.pk}: {str(self.content)[:50]}..."
+
+    class Meta:
+        """Metadata for the model.
+        
+        Attributes:
+            verbose_name_plural: The plural form of the model's name.
+        """
+        verbose_name_plural = "replies"
