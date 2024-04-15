@@ -1,6 +1,21 @@
+{% load i18n %}
+
 <div class="my-3" style="padding-left: {{ indent }}px;">
     <div class="text-sm text-zinc-500">{{ reply.created_at }}</div>
     {{ reply.content }}
+    {% if user.is_authenticated %}
+    <div>
+        <button
+            class="px-1 text-sm rounded bg-zinc-800"
+            hx-get="{% url 'posts:reply_create' %}?post={{ reply.post.id }}&parent={{ reply.id }}"
+            hx-target="#form-target-{{ reply.id }}"
+        >
+            {% trans "Reply" %}
+        </button>
+    </div>
+    <div class="mt-2" id="form-target-{{ reply.id }}">
+    </div>
+    {% endif %}
 </div>
 {% for child in reply.children.all %}
     {% include "posts/components/reply.html" with reply=child indent=indent|add:20 %}      

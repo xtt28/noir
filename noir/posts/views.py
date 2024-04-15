@@ -1,11 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
 from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from .models import Post
+from .models import Post, Reply
 
 
 class HomeRedirectView(View):
@@ -51,3 +51,16 @@ class PostDetailView(DetailView):
 
     model = Post
     context_object_name = "post"
+
+
+class ReplyCreateView(LoginRequiredMixin, CreateView):
+    """A view that allows the user to reply to a post."""
+
+    model = Reply
+    fields = ["post", "parent", "content"]
+    template_name_suffix = "_create_form"
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        self.object = form.save()
+        return render(self.request, "posts/components/reply.html", {"reply": form.instance})
