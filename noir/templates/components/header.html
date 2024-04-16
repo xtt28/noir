@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <header>
-    <h1 class="font-serif text-5xl">• Noir</h1>
+    <a class="font-serif text-5xl hover:underline" href="{% url 'posts:index' %}">• Noir</a>
     <p class="my-2 text-xl">{% trans "An anonymous place to be who you are." %}</p>
     <div class="my-2 text-zinc-500">
         <a
