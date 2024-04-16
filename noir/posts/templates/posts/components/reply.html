@@ -8,6 +8,11 @@
             {% trans "You" %}
         </span>
         {% endif %}
+        {% if reply.creator == reply.post.creator %}
+        <span class="px-1 py-0.5 ml-2 text-sm text-white rounded 5 bg-blue-400">
+            {% trans "Post Creator" %}
+        </span>
+        {% endif %}
     </div>
     {{ reply.content }}
     {% if user.is_authenticated %}
