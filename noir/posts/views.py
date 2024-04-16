@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
@@ -40,12 +41,15 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
-        return super().form_valid(form)
+        self.object = form.save()
+        res = HttpResponse()
+        res.headers["HX-Redirect"] = form.instance.get_absolute_url()
+        return res
 
 
 class PostDetailView(DetailView):
     """A view that shows detailed information about a post.
-    
+
     Information to be displayed includes title, content, timestamp and the reply
     tree."""
 
@@ -63,4 +67,6 @@ class ReplyCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.creator = self.request.user
         self.object = form.save()
-        return render(self.request, "posts/components/reply.html", {"reply": form.instance})
+        return render(
+            self.request, "posts/components/reply.html", {"reply": form.instance}
+        )
