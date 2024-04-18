@@ -711,6 +711,10 @@ video {
   --tw-gradient-to-position: 20%;
 }
 
+.to-\[20vh\]{
+  --tw-gradient-to-position: 20vh;
+}
+
 .p-2{
   padding: 0.5rem;
 }
