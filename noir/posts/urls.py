@@ -8,7 +8,6 @@ from .views import (
     ReplyCreateView,
 )
 
-# pylint:disable=all
 app_name = "posts"
 
 urlpatterns = [
