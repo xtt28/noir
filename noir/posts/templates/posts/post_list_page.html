@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block "title" %}{% trans "Browse posts" %}{% endblock %}
+
+{% block "content" %}
+<section class="mt-10">
+    <h2 class="font-serif text-3xl">{% trans "Timeline" %}</h2>
+    <div class="space-y-3">
+        {% include "posts/post_list_body.html" with posts=posts %}
+    </div>
+</section>
+{% endblock %}

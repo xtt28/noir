@@ -1,0 +1,27 @@
+{% load i18n %}
+
+{% for post in posts %}
+<div
+    class="p-2 my-2 text-sm transition border rounded bg-zinc-950 border-zinc-900"
+    {% if forloop.last %}
+    hx-trigger="revealed"
+    hx-swap="afterend"
+    hx-get="{% url 'posts:index' %}?page={{ page_obj.number|add:1 }}"
+    {% endif %}
+>
+    <a
+        class="text-lg text-zinc-300 hover:underline"
+        href="{{ post.get_absolute_url }}"
+    >
+        {{ post.title }}
+    </a>
+    <div class="overflow-hidden text-zinc-300 text-ellipsis">
+        {{ post.content|truncatechars:100 }}
+    </div>
+    <div class="text-sm text-zinc-500">
+        {% blocktrans with replies=post.replies.count created_at=post.created_at %}
+        {{ replies }} replies • Created {{ created_at }}
+        {% endblocktrans %}
+    </div>
+</div>
+{% endfor %}
