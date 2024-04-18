@@ -30,7 +30,11 @@ class PostListView(ListView):
     template_name = "posts/post_list_page.html"
 
     def get_template_names(self, *args, **kwargs):
-        return "posts/post_list_body.html" if self.request.htmx else self.template_name
+        return (
+            "posts/post_list_body.html"
+            if self.request.htmx and not self.request.htmx.boosted
+            else self.template_name
+        )
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
