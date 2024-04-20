@@ -556,12 +556,28 @@ video {
   --tw-contain-style:  ;
 }
 
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .visible{
   visibility: visible;
 }
 
 .static{
   position: static;
+}
+
+.m-auto{
+  margin: auto;
 }
 
 .mx-auto{
@@ -636,12 +652,30 @@ video {
   height: 100%;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .w-full{
   width: 100%;
 }
 
+.w-8{
+  width: 2rem;
+}
+
 .max-w-xl{
   max-width: 36rem;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin{
+  animation: spin 1s linear infinite;
 }
 
 .flex-col{
@@ -725,6 +759,14 @@ video {
 
 .to-\[20vh\]{
   --tw-gradient-to-position: 20vh;
+}
+
+.fill-blue-600{
+  fill: #2563eb;
+}
+
+.fill-zinc-400{
+  fill: #a1a1aa;
 }
 
 .p-2{
@@ -822,6 +864,16 @@ video {
   color: rgb(113 113 122 / var(--tw-text-opacity));
 }
 
+.text-gray-200{
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
+.text-zinc-600{
+  --tw-text-opacity: 1;
+  color: rgb(82 82 91 / var(--tw-text-opacity));
+}
+
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -868,5 +920,17 @@ input, textarea{
 @media (min-width: 640px){
   .sm\:flex-row{
     flex-direction: row;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  .dark\:text-gray-600{
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-zinc-600{
+    --tw-text-opacity: 1;
+    color: rgb(82 82 91 / var(--tw-text-opacity));
   }
 }
