@@ -74,8 +74,9 @@ class Reply(models.Model):
 
     class Meta:
         """Metadata for the model.
-        
+
         Attributes:
             verbose_name_plural: The plural form of the model's name.
         """
+
         verbose_name_plural = "replies"

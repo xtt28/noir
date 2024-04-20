@@ -4,11 +4,11 @@ from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
     """A Django CLI command that enables Tailwind development.
-    
+
     Upon execution of the command through manage.py, the Tailwind CSS CLI will
     start watching for HTML file changes and rebuilding the output Tailwind CSS
     file.
-    
+
     Attributes:
         help: A string that describes the command's function."""
 
