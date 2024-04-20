@@ -584,21 +584,28 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mx-1{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mb-2{
   margin-bottom: 0.5rem;
+}
+
+.mb-3{
+  margin-bottom: 0.75rem;
 }
 
 .mb-5{
   margin-bottom: 1.25rem;
 }
 
+.ml-1{
+  margin-left: 0.25rem;
+}
+
 .ml-2{
   margin-left: 0.5rem;
+}
+
+.mr-1{
+  margin-right: 0.25rem;
 }
 
 .mt-10{
@@ -611,18 +618,6 @@ video {
 
 .mt-5{
   margin-top: 1.25rem;
-}
-
-.mr-1{
-  margin-right: 0.25rem;
-}
-
-.ml-1{
-  margin-left: 0.25rem;
-}
-
-.mb-3{
-  margin-bottom: 0.75rem;
 }
 
 .block{
@@ -726,10 +721,6 @@ video {
 
 .to-black{
   --tw-gradient-to: #000 var(--tw-gradient-to-position);
-}
-
-.to-20\%{
-  --tw-gradient-to-position: 20%;
 }
 
 .to-\[20vh\]{
